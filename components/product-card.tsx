@@ -40,13 +40,13 @@ export function ProductCard({ product }: ProductCardProps) {
     <div className="group relative bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300 border border-gray-100">
       <div className="relative aspect-square overflow-hidden bg-gray-100">
         <Image
-          src={product.image || "/placeholder.svg"}
+          src={"/placeholder.svg"}
           alt={product.name}
           fill
           className="object-contain p-4 transition-transform duration-300 group-hover:scale-105"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
         />
-        {product.isNew && <Badge className="absolute top-2 right-2 bg-emerald-500 hover:bg-emerald-600">New</Badge>}
+        {product.isNew && <Badge className="absolute top-2 right-2 bg-emerald-500 hover:bg-emerald-600">Nouveau</Badge>}
       </div>
 
       <div className="p-4">
@@ -54,7 +54,7 @@ export function ProductCard({ product }: ProductCardProps) {
         <p className="text-sm text-gray-500 mb-2 line-clamp-2">{product.description}</p>
 
         <div className="flex justify-between items-center mb-3">
-          <span className="font-semibold text-gray-900">${product.price.toFixed(2)}</span>
+          <span className="font-semibold text-gray-900">{product.price.toFixed(2)} $</span>
           {renderRating(product.rating)}
         </div>
 
@@ -72,7 +72,7 @@ export function ProductCard({ product }: ProductCardProps) {
           </div>
 
           <Button size="sm" className="text-xs">
-            Add to Cart
+            Ajouter au panier
           </Button>
         </div>
       </div>

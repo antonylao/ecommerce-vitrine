@@ -98,7 +98,9 @@ const Carousel = React.forwardRef<
       [scrollPrev, scrollNext]
     )
 
+    const [isClient, setIsClient] = React.useState(false)
     React.useEffect(() => {
+      setIsClient(true)
       if (!api || !setApi) {
         return
       }
@@ -107,6 +109,7 @@ const Carousel = React.forwardRef<
     }, [api, setApi])
 
     React.useEffect(() => {
+      setIsClient(true)
       if (!api) {
         return
       }

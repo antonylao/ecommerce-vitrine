@@ -1,4 +1,4 @@
-"use client"
+
 
 import { Checkbox } from "@/components/ui/checkbox"
 import { Label } from "@/components/ui/label"
@@ -53,7 +53,7 @@ export function FilterSidebar({
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h2 className="text-lg font-medium">Filters</h2>
+        <h2 className="text-lg font-medium">Filtres</h2>
         {hasActiveFilters && (
           <Button
             variant="ghost"
@@ -61,7 +61,7 @@ export function FilterSidebar({
             onClick={onClearFilters}
             className="text-sm text-gray-500 hover:text-gray-900"
           >
-            Clear all
+            Tout effacer
           </Button>
         )}
       </div>
@@ -69,7 +69,7 @@ export function FilterSidebar({
       <Accordion type="multiple" defaultValue={["categories", "price", "colors", "rating"]}>
         {/* Categories */}
         <AccordionItem value="categories">
-          <AccordionTrigger className="text-sm font-medium">Categories</AccordionTrigger>
+          <AccordionTrigger className="text-sm font-medium">Catégories</AccordionTrigger>
           <AccordionContent>
             <div className="space-y-2 pt-1">
               {categories.map((category) => (
@@ -90,7 +90,7 @@ export function FilterSidebar({
 
         {/* Price Range */}
         <AccordionItem value="price">
-          <AccordionTrigger className="text-sm font-medium">Price Range</AccordionTrigger>
+          <AccordionTrigger className="text-sm font-medium">Prix</AccordionTrigger>
           <AccordionContent>
             <div className="space-y-4 pt-2">
               <Slider
@@ -102,8 +102,8 @@ export function FilterSidebar({
                 onValueChange={onPriceRangeChange}
               />
               <div className="flex items-center justify-between">
-                <span className="text-sm">${priceRange[0]}</span>
-                <span className="text-sm">${priceRange[1]}</span>
+                <span className="text-sm">{priceRange[0]} $</span>
+                <span className="text-sm">{priceRange[1]} $</span>
               </div>
             </div>
           </AccordionContent>
@@ -111,7 +111,7 @@ export function FilterSidebar({
 
         {/* Colors */}
         <AccordionItem value="colors">
-          <AccordionTrigger className="text-sm font-medium">Colors</AccordionTrigger>
+          <AccordionTrigger className="text-sm font-medium">Couleurs</AccordionTrigger>
           <AccordionContent>
             <div className="grid grid-cols-2 gap-2 pt-1">
               {colors.map((color) => (
@@ -138,7 +138,7 @@ export function FilterSidebar({
 
         {/* Rating */}
         <AccordionItem value="rating">
-          <AccordionTrigger className="text-sm font-medium">Rating</AccordionTrigger>
+          <AccordionTrigger className="text-sm font-medium">Note</AccordionTrigger>
           <AccordionContent>
             <div className="space-y-2 pt-1">
               {[4, 3, 2, 1].map((rating) => (
@@ -163,7 +163,7 @@ export function FilterSidebar({
                         <Star key={i} className="w-4 h-4 text-gray-300" />
                       ))}
                     </div>
-                    <span className="ml-1">& Up</span>
+                    <span className="ml-1">et plus</span>
                   </Label>
                 </div>
               ))}
@@ -173,15 +173,15 @@ export function FilterSidebar({
 
         {/* Mobile-only sort options */}
         <AccordionItem value="sort" className="md:hidden">
-          <AccordionTrigger className="text-sm font-medium">Sort By</AccordionTrigger>
+          <AccordionTrigger className="text-sm font-medium">Trier par</AccordionTrigger>
           <AccordionContent>
             <div className="space-y-2 pt-1">
               {[
-                { value: "featured", label: "Featured" },
-                { value: "price-asc", label: "Price: Low to High" },
-                { value: "price-desc", label: "Price: High to Low" },
-                { value: "rating", label: "Highest Rated" },
-                { value: "newest", label: "Newest" },
+                { value: "featured", label: "En vedette" },
+                { value: "price-asc", label: "Prix : croissant" },
+                { value: "price-desc", label: "Prix : décroissant" },
+                { value: "rating", label: "Mieux notés" },
+                { value: "newest", label: "Nouveautés" },
               ].map((option) => (
                 <div key={option.value} className="flex items-center space-x-2">
                   <Checkbox
@@ -207,7 +207,7 @@ export function FilterSidebar({
       <div className="flex items-center space-x-2 pt-2">
         <Checkbox id="new-only" checked={showNewOnly} onCheckedChange={(checked) => onNewOnlyChange(!!checked)} />
         <Label htmlFor="new-only" className="text-sm font-normal cursor-pointer">
-          New arrivals only
+          Nouveautés uniquement
         </Label>
       </div>
     </div>

@@ -4,8 +4,10 @@ import { useState, useEffect } from "react"
 
 export const useMediaQuery = (query: string): boolean => {
   const [matches, setMatches] = useState(false)
+  const [isClient, setIsClient] = useState(false)
 
   useEffect(() => {
+    setIsClient(true)
     const mediaQuery = window.matchMedia(query)
 
     const handleChange = () => {

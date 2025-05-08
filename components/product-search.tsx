@@ -26,133 +26,133 @@ type Product = {
 const products: Product[] = [
   {
     id: 1,
-    name: "Minimalist Ceramic Vase",
-    description: "Handcrafted ceramic vase with a modern minimalist design",
+    name: "Vase en céramique minimaliste",
+    description: "Vase en céramique fait main au design moderne et minimaliste",
     price: 39.99,
     rating: 4.5,
     image: "/images/vase.png",
-    category: "Home Decor",
+    category: "Décoration d'intérieur",
     colors: ["white", "black", "beige"],
     isNew: true,
   },
   {
     id: 2,
-    name: "Organic Cotton T-Shirt",
-    description: "Soft, breathable organic cotton t-shirt for everyday wear",
+    name: "T-shirt en coton biologique",
+    description: "T-shirt en coton biologique doux et respirant pour un usage quotidien",
     price: 24.99,
     rating: 4.2,
     image: "/images/tshirt.png",
-    category: "Clothing",
+    category: "Vêtements",
     colors: ["white", "black", "navy", "gray"],
     isNew: false,
   },
   {
     id: 3,
-    name: "Wireless Noise-Canceling Headphones",
-    description: "Premium wireless headphones with active noise cancellation",
+    name: "Casque sans fil à réduction de bruit",
+    description: "Casque sans fil haut de gamme avec réduction de bruit active",
     price: 199.99,
     rating: 4.8,
     image: "/images/headphones.png",
-    category: "Electronics",
+    category: "Électronique",
     colors: ["black", "silver"],
     isNew: true,
   },
   {
     id: 4,
-    name: "Leather Crossbody Bag",
-    description: "Genuine leather crossbody bag with adjustable strap",
+    name: "Sac bandoulière en cuir",
+    description: "Sac bandoulière en cuir véritable avec sangle réglable",
     price: 89.99,
     rating: 4.3,
     image: "/images/bag.png",
-    category: "Accessories",
+    category: "Accessoires",
     colors: ["brown", "black", "tan"],
     isNew: false,
   },
   {
     id: 5,
-    name: "Smart Fitness Tracker",
-    description: "Advanced fitness tracker with heart rate monitoring and GPS",
+    name: "Bracelet connecté intelligent",
+    description: "Bracelet de suivi fitness avancé avec surveillance du rythme cardiaque et GPS",
     price: 129.99,
     rating: 4.6,
     image: "/images/fitness-tracker.png",
-    category: "Electronics",
+    category: "Électronique",
     colors: ["black", "blue", "pink"],
     isNew: true,
   },
   {
     id: 6,
-    name: "Stainless Steel Water Bottle",
-    description: "Insulated stainless steel water bottle that keeps drinks cold for 24 hours",
+    name: "Bouteille isotherme en acier inoxydable",
+    description: "Bouteille en acier inoxydable isolée, garde les boissons froides pendant 24h",
     price: 34.99,
     rating: 4.7,
     image: "/images/water-bottle.png",
-    category: "Kitchen",
+    category: "Cuisine",
     colors: ["silver", "black", "green", "blue"],
     isNew: false,
   },
   {
     id: 7,
-    name: "Handwoven Wool Throw Blanket",
-    description: "Cozy handwoven wool throw blanket for your home",
+    name: "Plaid en laine tissé à la main",
+    description: "Plaid en laine confortable tissé à la main pour votre intérieur",
     price: 79.99,
     rating: 4.4,
     image: "/images/blanket.png",
-    category: "Home Decor",
+    category: "Décoration d'intérieur",
     colors: ["gray", "cream", "navy"],
     isNew: false,
   },
   {
     id: 8,
-    name: "Ceramic Pour-Over Coffee Maker",
-    description: "Elegant ceramic pour-over coffee maker for the perfect brew",
+    name: "Cafetière filtre en céramique",
+    description: "Cafetière filtre élégante en céramique pour une infusion parfaite",
     price: 49.99,
     rating: 4.1,
     image: "/images/coffee-maker.png",
-    category: "Kitchen",
+    category: "Cuisine",
     colors: ["white", "black"],
     isNew: true,
   },
   {
     id: 9,
-    name: "Linen Bed Sheets Set",
-    description: "Luxurious 100% linen bed sheet set for a comfortable sleep",
+    name: "Parure de draps en lin",
+    description: "Parure de draps en lin 100 % pour un sommeil confortable",
     price: 149.99,
     rating: 4.9,
     image: "/images/sheets.png",
-    category: "Bedding",
+    category: "Literie",
     colors: ["white", "gray", "sage", "blush"],
     isNew: false,
   },
   {
     id: 10,
-    name: "Bamboo Cutting Board Set",
-    description: "Sustainable bamboo cutting board set, includes 3 sizes",
+    name: "Ensemble de planches à découper en bambou",
+    description: "Ensemble durable de planches à découper en bambou, 3 tailles incluses",
     price: 44.99,
     rating: 4.0,
     image: "/images/cutting-board.png",
-    category: "Kitchen",
+    category: "Cuisine",
     colors: ["natural"],
     isNew: false,
   },
   {
     id: 11,
-    name: "Leather Wallet",
-    description: "Slim leather wallet with RFID protection",
+    name: "Portefeuille en cuir",
+    description: "Portefeuille en cuir fin avec protection RFID",
     price: 59.99,
     rating: 4.5,
     image: "/images/wallet.png",
-    category: "Accessories",
+    category: "Accessoires",
     colors: ["brown", "black"],
     isNew: false,
   },
   {
     id: 12,
-    name: "Scented Soy Candle",
-    description: "Hand-poured soy candle with essential oil fragrances",
+    name: "Bougie parfumée en cire de soja",
+    description: "Bougie en cire de soja coulée à la main avec des huiles essentielles",
     price: 29.99,
     rating: 4.3,
     image: "/images/candle.png",
-    category: "Home Decor",
+    category: "Décoration d'intérieur",
     colors: ["white"],
     isNew: true,
   },
@@ -176,9 +176,10 @@ export default function ProductSearch() {
   const [isFilterOpen, setIsFilterOpen] = useState(false)
 
   const isMobile = useMediaQuery("(max-width: 768px)")
-
+  const [isClient, setIsClient] = useState(false)
   // Apply filters and sorting
   useEffect(() => {
+    setIsClient(true)
     let result = [...products]
 
     // Search filter
@@ -261,16 +262,16 @@ export default function ProductSearch() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      {/* Header with search */}
+      {/* En-tête avec recherche */}
       <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
-        <h1 className="text-2xl font-bold">Shop All Products</h1>
+        <h1 className="text-2xl font-bold">Tous les produits</h1>
 
         <div className="flex w-full md:w-auto gap-2">
           <div className="relative flex-1 md:w-80">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
             <Input
               type="text"
-              placeholder="Search products..."
+              placeholder="Rechercher des produits..."
               className="pl-10"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
@@ -290,7 +291,7 @@ export default function ProductSearch() {
               <SheetTrigger asChild>
                 <Button variant="outline" className="flex gap-2 whitespace-nowrap">
                   <SlidersHorizontal className="h-4 w-4" />
-                  Filters
+                  Filtres
                   {activeFilterCount > 0 && (
                     <span className="bg-primary text-primary-foreground rounded-full w-5 h-5 text-xs flex items-center justify-center">
                       {activeFilterCount}
@@ -300,8 +301,8 @@ export default function ProductSearch() {
               </SheetTrigger>
               <SheetContent side="left" className="w-[300px] sm:w-[400px]">
                 <SheetHeader>
-                  <SheetTitle>Filters</SheetTitle>
-                  <SheetDescription>Refine your product search</SheetDescription>
+                  <SheetTitle>Filtres</SheetTitle>
+                  <SheetDescription>Affinez votre recherche de produits</SheetDescription>
                 </SheetHeader>
                 <div className="py-4">
                   <FilterSidebar
@@ -330,18 +331,18 @@ export default function ProductSearch() {
               value={sortOption}
               onChange={(e) => setSortOption(e.target.value)}
             >
-              <option value="featured">Featured</option>
-              <option value="price-asc">Price: Low to High</option>
-              <option value="price-desc">Price: High to Low</option>
-              <option value="rating">Highest Rated</option>
-              <option value="newest">Newest</option>
+              <option value="featured">En vedette</option>
+              <option value="price-asc">Prix : croissant</option>
+              <option value="price-desc">Prix : décroissant</option>
+              <option value="rating">Les mieux notés</option>
+              <option value="newest">Les plus récents</option>
             </select>
           )}
         </div>
       </div>
 
       <div className="flex flex-col md:flex-row gap-8">
-        {/* Filters sidebar - desktop only */}
+        {/* Filtres (bureau uniquement) */}
         {!isMobile && (
           <div className="w-64 shrink-0">
             <FilterSidebar
@@ -364,20 +365,20 @@ export default function ProductSearch() {
           </div>
         )}
 
-        {/* Product grid */}
+        {/* Grille de produits */}
         <div className="flex-1">
           {filteredProducts.length === 0 ? (
             <div className="text-center py-12">
-              <h3 className="text-lg font-medium">No products found</h3>
-              <p className="text-gray-500 mt-2">Try adjusting your filters or search query</p>
+              <h3 className="text-lg font-medium">Aucun produit trouvé</h3>
+              <p className="text-gray-500 mt-2">Essayez de modifier vos filtres ou votre recherche</p>
               <Button variant="outline" className="mt-4" onClick={clearFilters}>
-                Clear all filters
+                Réinitialiser les filtres
               </Button>
             </div>
           ) : (
             <>
               <p className="text-sm text-gray-500 mb-4">
-                Showing {filteredProducts.length} {filteredProducts.length === 1 ? "product" : "products"}
+                {filteredProducts.length} {filteredProducts.length === 1 ? "produit affiché" : "produits affichés"}
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {filteredProducts.map((product) => (
